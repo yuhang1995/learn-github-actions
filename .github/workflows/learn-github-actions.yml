@@ -32,8 +32,6 @@ jobs:
                 ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
         run: pnpm install
-      - name: Install bats
-        run: pnpm add -g bats
       - name: check bats version
         run: bats -v
       - name: Upload file

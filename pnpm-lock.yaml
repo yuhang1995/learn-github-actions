@@ -1,0 +1,13 @@
+lockfileVersion: '6.0'
+
+dependencies:
+  bats:
+    specifier: ^1.9.0
+    version: 1.9.0
+
+packages:
+
+  /bats@1.9.0:
+    resolution: {integrity: sha512-Z5BJaAmmHv/ujj7obhjEzJ//OL+ZtjVq0iRnHu+2fE9OeUaPMbJpBgYiOdNbDrG3E2hqe84/AXNnS/UiXl/UcA==}
+    hasBin: true
+    dev: false
