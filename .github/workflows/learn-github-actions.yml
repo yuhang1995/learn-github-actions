@@ -39,6 +39,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          file: "test.text"
+          file: "release/test.text"
           tags: true
           draft: false
