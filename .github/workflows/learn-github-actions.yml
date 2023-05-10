@@ -35,8 +35,8 @@ jobs:
         run: pnpm install
       - name: check bats version
         run: pnpm bats -v
-      - name: Test
-        run: cat test.txt
+      - name: Display folder structure
+        run: tree
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
