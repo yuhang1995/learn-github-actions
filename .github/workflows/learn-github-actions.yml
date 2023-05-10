@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: check bats version
-        run: bats -v
+        run: pnpm bats -v
       - name: Upload file
         uses: xresloader/upload-to-github-release@v1
         env:
