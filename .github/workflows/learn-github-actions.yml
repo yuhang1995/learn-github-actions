@@ -3,13 +3,14 @@ run-name: ${{ github.actor }} is learning GitHub Actions
 on: 
     push:
         tags: 
-            '*'
+            - 'v*.*.*' # 匹配以 v 开头的标签
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: '14'    
       - uses: pnpm/action-setup@v2
@@ -34,11 +35,12 @@ jobs:
         run: pnpm install
       - name: check bats version
         run: pnpm bats -v
-      - name: Upload file
-        uses: xresloader/upload-to-github-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Test
+        run: cat test.txt
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
         with:
-          file: "*.text"
-          tags: true
-          draft: false
+          files: |
+            test.txt
+            LICENSE
