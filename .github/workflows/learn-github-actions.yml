@@ -1,11 +1,16 @@
 name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+on: 
+    push:
+        branches: 
+            - main
+        tags:
+            - 'v*.*.*'
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     permissions:
-        contents: write
+       contents: write
     steps:
       - uses: actions/checkout@v3
       - name: Setup Node.js
