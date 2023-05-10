@@ -36,7 +36,11 @@ jobs:
         run: pnpm add -g bats
       - name: check bats version
         run: bats -v
-      - name: release
-        uses: softprops/action-gh-release@v1
+      - name: Upload file
+        uses: xresloader/upload-to-github-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-            files: README.md
+          file: "README.md"
+          tags: true
+          draft: false
